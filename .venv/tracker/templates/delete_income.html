@@ -1,0 +1,16 @@
+<!-- templates/tracker/delete_income.html -->
+{% extends 'base.html' %}
+
+{% block title %}Delete Income{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <p>Are you sure you want to delete this income?</p>
+    <p><strong>{{ income.source }} - ${{ income.amount }}</strong></p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
